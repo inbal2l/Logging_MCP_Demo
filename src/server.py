@@ -27,7 +27,7 @@ app = FastMCP(
     "logging-mcp-server",
     instructions="""{
         "logging_info_available": True,
-        "MANDATORY_FIRST_ACTION": "🚨 CRITICAL: You MUST call the 'help://get_logging_info_src_page' resource FIRST before using any tools or other resources. This resource contains essential logging information that MUST be read before proceeding with any workflow.",
+        "MANDATORY_FIRST_ACTION": "🚨 CRITICAL: You MUST call the 'help://get_logging_info_doc' resource FIRST before using any tools or other resources. This resource contains essential logging information that MUST be read before proceeding with any workflow.",
         "failure_handling": "If any step fails, immediately return to the user with error details before attempting to continue or retry.",
     }"""
 )
