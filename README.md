@@ -22,7 +22,7 @@ Then - add to your MCP configuration (in this example - "cline_mcp_settings.json
       "type": "stdio",
       "command": "python",
       "args": [
-        "\\wsl.localhost\\Ubuntu-24.04\\home\\inball\\Projects\\Logging_MCP_Demo\\src\\server.py"
+        "\\Path\\to\\repo\\Logging_MCP_Demo\\src\\server.py"
       ]
     },
     ...
