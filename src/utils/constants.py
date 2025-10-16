@@ -1,0 +1,3 @@
+
+INFO_DOCS_PATH = "src/info_docs/"
+LOGGING_ONLINE_INFO_SRC=""
