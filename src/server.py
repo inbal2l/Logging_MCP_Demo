@@ -15,6 +15,7 @@ sys.path.insert(0, str(project_root))
 # Configure logging to reduce MCP framework noise
 logging.getLogger('mcp.server.fastmcp').setLevel(logging.WARNING)
 logging.getLogger('mcp').setLevel(logging.WARNING)
+logging.basicConfig(stream=sys.stderr, level=logging.INFO, format='%(levelname)s %(message)s')
 
 from mcp.server.fastmcp import FastMCP
 
@@ -26,9 +27,9 @@ from src.modules.tools import register_tools
 app = FastMCP(
     "logging-mcp-server",
     instructions="""{
-        "logging_info_available": True,
-        "MANDATORY_FIRST_ACTION": "🚨 CRITICAL: You MUST call the 'help://get_logging_info_doc' resource FIRST before using any tools or other resources. This resource contains essential logging information that MUST be read before proceeding with any workflow.",
-        "failure_handling": "If any step fails, immediately return to the user with error details before attempting to continue or retry.",
+        "logging_info_available": true,
+        "MANDATORY_FIRST_ACTION": "CRITICAL: You MUST call the 'help://get_logging_info_doc' resource FIRST before using any tools or other resources. Read it fully before invoking tools.",
+        "failure_handling": "If any step fails, immediately return to the user with error details before attempting to continue or retry."
     }"""
 )
 
@@ -37,7 +38,7 @@ register_tools(app)
 
 def main():
     """Run the MCP server."""   
-    print("Creating logging MCP Server instant in main() `server.py`...")
+    logging.info("Starting logging MCP server (server.py)")
 
     app.run(transport='stdio')
 

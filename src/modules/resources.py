@@ -2,6 +2,7 @@
 from src.utils.constants import *
 from src.utils.files_management import _load_file
 from mcp.server.fastmcp import FastMCP
+import logging
 
 
 #####################################
@@ -14,11 +15,12 @@ async def get_logging_info_doc() -> str:
     Returns:
         Detailed information on logging from the logging info source file.
     """
-    print("Calling get_logging_info_doc() resource")
+    logging.debug("get_logging_info_doc() invoked")
 
     try:
         return _load_file(INFO_DOCS_PATH + "Logging_Info_Doc.md")
     except Exception as e:
+        logging.error(f"Failed to load logging info source documentation: {str(e)}")
         return f"ERROR: Failed to load logging info source documentation: {str(e)}"
 
 
